@@ -1,18 +1,20 @@
-## Getting Started
+## ATIVIDADE DA DISCIPLINA POO (Programação Orientada à Objetos)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+- Aluno: Francisco Erivelton 
+- Professor : Jesiel Viana
 
-## Folder Structure
+## BANCO MAUT
 
-The workspace contains two folders by default, where:
+- Nosso cliente, o Banco Maut,  solicitou um sistema financeiro para gestão de contas de seus clientes, por enquanto temos as seguintes informações (requisitos) sobre o sistema solicitado:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- Um conta no banco Maut tem número da agência, número da conta, saldo e um Cliente vinculado;
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Para que um cliente abra uma conta no banco Maut, ele deve informar os seguintes dados: nome, CPF, data de nascimento e endereço completo;
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- Um conta só pode estar vinculada a um cliente, no entanto um cliente pode ter várias contas;
 
-## Dependency Management
+- O sistema deve possibilitar ao cliente ver o saldo de sua conta, depositar, sacar, transferir dinheiro para outra conta e exibir extrato (lista de transações realizadas);
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- Após a criação da conta não pode-se alterar sua agência e nem seu número;
+
+- O CPF do cliente não pode ser alterado;
