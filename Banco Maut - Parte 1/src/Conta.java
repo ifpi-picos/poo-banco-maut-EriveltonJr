@@ -2,11 +2,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 public class Conta {
-
-    private boolean saldoInsuficiente(double valor){
-        return saldo >= valor;
-    }
-
     private String agencia;
     private String numero;
     private double saldo;
@@ -42,27 +37,34 @@ public class Conta {
     }
 
     public void depositar(double valor){
+        if(valor > 0 && saldo >= valor){
         saldo += valor;
         Transacao novaTransacao = new Transacao(new Date(), "Depósito", valor);
         transacao.add(novaTransacao);
+        System.out.println(("Valor depositado com sucesso."));
+        }else{
+            System.out.println("Valor inválido para depósito.");
+        }
     }
 
     public void sacar(double valor){
-        if(saldoInsuficiente(valor)){
+        if(valor > 0 && saldo >= valor){
             saldo -= valor;
             Transacao novaTransacao = new Transacao(new Date(), "Saque", valor);
             transacao.add(novaTransacao);
+            System.out.println("Valor sacado com sucesso.");
         } else {
             System.out.println("Saldo Insuficiente.");
         }
     }
 
     public void transferir(Conta alvo, double valor){
-        if(saldoInsuficiente(valor)){
+        if(valor > 0 && saldo >= valor){
             saldo -= valor;
             alvo.depositar(valor);
             Transacao novaTransacao = new Transacao(new Date(), "Transferência para conta " + alvo.getNumero(), valor);
             transacao.add(novaTransacao);
+            System.out.println("Tranferência realizada com sucesso.");
         } else {
             System.out.println("Saldo Insuficiente.");
         }
