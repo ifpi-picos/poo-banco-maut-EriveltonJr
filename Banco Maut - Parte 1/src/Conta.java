@@ -3,6 +3,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Conta {
+    private Notificacao notificacao;
     private String endereco;
     private String senha;
     private String agencia;
@@ -19,6 +20,15 @@ public class Conta {
         this.transacoes = new ArrayList<>();
         this.senha = senha;
         this.endereco = endereco;
+        this.notificacao = new Notificacao();
+    }
+
+    public void enviarNotificacaoPorEmail(String mensagem) {
+        notificacao.enviarNotificacaoPorEmail(mensagem);
+    }
+
+    public void enviarNotificacaoPorSMS(String mensagem) {
+        notificacao.enviarNotificacaoPorSMS(mensagem);
     }
 
     public String getEndereco(){
@@ -98,13 +108,6 @@ public class Conta {
         } else {
             System.out.println("Saldo Insuficiente.");
             return false;
-        }
-    }
-
-    public void mostrarExtrato() {
-        System.out.println("Extrato da conta " + numero);
-        for (Transacao transacao : transacoes) {
-            System.out.println(transacao.getData() + " - " + transacao.getDescricao() + ": " + transacao.getValor());
         }
     }
 }
