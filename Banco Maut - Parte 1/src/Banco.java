@@ -7,15 +7,15 @@ public class Banco {
 
     public Banco() {
         contas = new ArrayList<>();
-        proximoNumeroConta = 1; // Inicialize o número de conta
+        proximoNumeroConta = 1; 
     }
 
-    public Conta criarConta(Cliente cliente, String senha, String endereco) {
+    public Conta criarConta(Cliente cliente, String senha, Endereco enderecoCliente) {
         String numeroConta = gerarNumeroContaUnico();
-        Conta conta = new Conta(numeroConta, senha, 1000.0, cliente, senha, endereco);
+        Conta conta = new Conta(numeroConta, senha, 1000.0, cliente, senha, enderecoCliente);
         contas.add(conta);
         return conta;
-    }
+    }    
 
     public Conta acessarConta(String numeroConta, String senha) {
         for (Conta conta : contas) {

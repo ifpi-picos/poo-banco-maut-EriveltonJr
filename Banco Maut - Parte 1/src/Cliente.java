@@ -1,42 +1,42 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cliente{
+public class Cliente {
     String nome;
     String cpf;
     String dataNascimento;
-    String endereço;
+    private Endereco endereco;
     List<Conta> contas;
 
-    public Cliente(String nome, String cpf, String dataNascimento, String endereço){
+    public Cliente(String nome, String cpf, String dataNascimento, Endereco endereco) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
-        this.endereço = endereço;
+        this.endereco = endereco;
         this.contas = new ArrayList<>();
     }
 
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
 
-    public String getCpf(){
+    public String getCpf() {
         return cpf;
     }
 
-    public String getDataNascimento(){
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public String getEndereço(){
-        return endereço;
+    public Endereco getEndereco() {
+        return endereco;
     }
 
-    public List<Conta> getContas(){
+    public List<Conta> getContas() {
         return contas;
     }
 
-    public void abrirConta(Conta conta){
+    public void abrirConta(Conta conta) {
         contas.add(0, conta);
     }
 }

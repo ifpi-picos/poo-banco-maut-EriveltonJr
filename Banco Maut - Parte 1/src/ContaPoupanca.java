@@ -1,6 +1,6 @@
 public class ContaPoupanca extends Conta {
 
-    public ContaPoupanca(String numero, double saldo, Cliente cliente, String senha, String endereco) {
+    public ContaPoupanca(String numero, double saldo, Cliente cliente, String senha, Endereco endereco) {
         super(numero,numero, saldo, cliente, senha, endereco);
     }
 

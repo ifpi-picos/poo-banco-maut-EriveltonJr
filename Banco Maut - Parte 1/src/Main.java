@@ -25,8 +25,23 @@ public abstract class Main {
                         String cpfCliente = scanner.nextLine();
                         System.out.println("Digite sua data de nascimento: ");
                         String dataNascimentoCliente = scanner.nextLine();
-                        System.out.println("Insira o seu Endereço: ");
-                        String enderecoCliente = scanner.nextLine();
+                        System.out.println("Insira o seu logradouro: ");
+                        String logradouroCliente = scanner.nextLine();
+                        System.out.println("Insira uma referência: ");
+                        String referenciaCliente = scanner.nextLine();
+                        System.out.println("Insira o número: ");
+                        String numeroCliente = scanner.nextLine();
+                        System.out.println("Insira o bairro: ");
+                        String bairroCliente = scanner.nextLine();
+                        System.out.println("Insira a cidade: ");
+                        String cidadeCliente = scanner.nextLine();
+                        System.out.println("Insira o estado: ");
+                        String estadoCliente = scanner.nextLine();
+                        System.out.println("Insira o CEP: ");
+                        String cepCliente = scanner.nextLine();
+                        
+                        Endereco enderecoCliente = new Endereco(logradouroCliente, referenciaCliente, numeroCliente, bairroCliente, cidadeCliente, estadoCliente, cepCliente);
+                        
                         System.out.println("Crie uma senha para acessar sua conta: ");
                         String senhaCliente = scanner.nextLine();
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Conta {
     private Notificacao notificacao;
-    private String endereco;
+    private Endereco endereco;
     private String senha;
     private String agencia;
     private String numero;
@@ -12,7 +12,7 @@ public class Conta {
     private Cliente cliente;
     private List<Transacao> transacoes;
 
-    public Conta(String agencia, String numero, double saldo, Cliente cliente, String senha, String endereco) {
+    public Conta(String agencia, String numero, double saldo, Cliente cliente, String senha, Endereco endereco) {
         this.agencia = agencia;
         this.numero = numero;
         this.saldo = saldo;
@@ -22,7 +22,6 @@ public class Conta {
         this.endereco = endereco;
         this.notificacao = new Notificacao();
     }
-
     public void enviarNotificacaoPorEmail(String mensagem) {
         notificacao.enviarNotificacaoPorEmail(mensagem);
     }
@@ -31,11 +30,11 @@ public class Conta {
         notificacao.enviarNotificacaoPorSMS(mensagem);
     }
 
-    public String getEndereco(){
+    public Endereco getEndereco(){
         return endereco;
     }
 
-    public void setEndereco(String endereco){
+    public void setEndereco(Endereco endereco){
         this.endereco = endereco;
     }
 
