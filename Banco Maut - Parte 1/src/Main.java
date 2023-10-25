@@ -42,11 +42,26 @@ public abstract class Main {
                         
                         Endereco enderecoCliente = new Endereco(logradouroCliente, referenciaCliente, numeroCliente, bairroCliente, cidadeCliente, estadoCliente, cepCliente);
                         
-                        System.out.println("Crie uma senha para acessar sua conta: ");
-                        String senhaCliente = scanner.nextLine();
+                        System.out.println("Escolha o tipo de conta:");
+                        System.out.println("1 - Conta Poupança");
+                        System.out.println("2 - Conta Corrente");
+                        int tipoConta = scanner.nextInt();
+                        scanner.nextLine();
 
-                        Cliente cliente = new Cliente(nomeCliente, cpfCliente, dataNascimentoCliente, enderecoCliente);
-                        Conta conta = banco.criarConta(cliente, senhaCliente, enderecoCliente);
+                        Conta conta;
+                        if (tipoConta == 1) {
+                            System.out.println("Crie uma senha para acessar sua conta poupança: ");
+                            String senhaCliente = scanner.nextLine();
+                            conta = banco.criarContaPoupanca(nomeCliente, cpfCliente, dataNascimentoCliente, enderecoCliente, senhaCliente);
+                        } else if (tipoConta == 2) {
+                            System.out.println("Crie uma senha para acessar sua conta corrente: ");
+                            String senhaCliente = scanner.nextLine();
+                            conta = banco.criarContaCorrente(nomeCliente, cpfCliente, dataNascimentoCliente, enderecoCliente, senhaCliente);
+                        } else {
+                            System.out.println("Opção inválida. Escolha uma das opções de conta.");
+                            break;
+                        }
+
                         System.out.println("Conta criada com sucesso! Sua conta é : " + conta.getNumero());
                         break;
                     case 2:

@@ -10,12 +10,21 @@ public class Banco {
         proximoNumeroConta = 1; 
     }
 
-    public Conta criarConta(Cliente cliente, String senha, Endereco enderecoCliente) {
+    public Conta criarContaPoupanca(String nomeCliente, String cpfCliente, String dataNascimentoCliente, Endereco endereco, String senha) {
         String numeroConta = gerarNumeroContaUnico();
-        Conta conta = new Conta(numeroConta, senha, 1000.0, cliente, senha, enderecoCliente);
-        contas.add(conta);
-        return conta;
+        Cliente cliente = new Cliente(cpfCliente, dataNascimentoCliente, numeroConta, endereco);
+        ContaPoupanca contaPoupanca = new ContaPoupanca(numeroConta, 1000.0, cliente, senha, endereco);
+        contas.add(contaPoupanca);
+        return contaPoupanca;
     }    
+
+    public Conta criarContaCorrente(String nomeCliente, String cpfCliente, String dataNascimentoCliente, Endereco endereco, String senha) {
+        String numeroConta = gerarNumeroContaUnico();
+        Cliente cliente = new Cliente(nomeCliente, cpfCliente, dataNascimentoCliente, endereco);
+        ContaCorrente contaCorrente = new ContaCorrente(numeroConta, proximoNumeroConta, cliente, proximoNumeroConta, senha, endereco);
+        contas.add(contaCorrente);
+        return contaCorrente;
+    }
 
     public Conta acessarConta(String numeroConta, String senha) {
         for (Conta conta : contas) {
