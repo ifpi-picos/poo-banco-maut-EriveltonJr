@@ -4,15 +4,16 @@ import java.util.List;
 
 public class Conta {
     private Notificacao notificacao;
-    private Endereco endereco;
+    private Endereco endereco; // conta não tem entedereço, quem tem endereço é cliente.
     private String senha;
     private String agencia;
     private String numero;
-    double saldo;
+    double saldo; // deveria ser private
     private Cliente cliente;
     private List<Transacao> transacoes;
 
-    public Conta(String agencia, String numero, double saldo, Cliente cliente, String senha, Endereco endereco) {
+    public Conta(String agencia, String numero, double saldo, Cliente cliente, String senha,
+            Endereco endereco) {
         this.agencia = agencia;
         this.numero = numero;
         this.saldo = saldo;
@@ -22,6 +23,7 @@ public class Conta {
         this.endereco = endereco;
         this.notificacao = new Notificacao();
     }
+
     public void enviarNotificacaoPorEmail(String mensagem) {
         notificacao.enviarNotificacaoPorEmail(mensagem);
     }
@@ -30,11 +32,11 @@ public class Conta {
         notificacao.enviarNotificacaoPorSMS(mensagem);
     }
 
-    public Endereco getEndereco(){
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco){
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
@@ -48,7 +50,7 @@ public class Conta {
         System.out.println("Endereço do cliente: " + endereco);
     }
 
-    public String getSenha(){
+    public String getSenha() {
         return senha;
     }
 
@@ -100,7 +102,8 @@ public class Conta {
         if (valor > 0 && saldo >= valor) {
             saldo -= valor;
             alvo.depositar(valor);
-            Transacao novaTransacao = new Transacao(new Date(), "Transferência para conta " + alvo.getNumero(), valor);
+            Transacao novaTransacao = new Transacao(new Date(),
+                    "Transferência para conta " + alvo.getNumero(), valor);
             transacoes.add(novaTransacao);
             System.out.println("Transferência realizada com sucesso!");
             return true;

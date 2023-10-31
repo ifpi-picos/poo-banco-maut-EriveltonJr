@@ -1,6 +1,8 @@
 public class ContaCorrente extends Conta {
 
-    public ContaCorrente(String numero, double saldo, Cliente cliente, double limiteChequeEspecial, String senha, Endereco endereco) {
+    // está faltando o atributo de limiteChequeEspecial
+    public ContaCorrente(String numero, double saldo, Cliente cliente, double limiteChequeEspecial,
+            String senha, Endereco endereco) {
         super(numero, numero, saldo, cliente, senha, endereco);
     }
 
